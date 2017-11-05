@@ -30,7 +30,6 @@ body {
 			this.load.spritesheet('mario', 'assets/mario.png', 16, 16);
 			this.load.spritesheet('coin', 'assets/coin.png', 16, 16);
 			this.load.tilemap('level', 'assets/super_mario_map.json', null,
-                        this.load.audio('jump','audio/coin.mp3');
 					Phaser.Tilemap.TILED_JSON);
 		}
 		function create() {
@@ -106,8 +105,6 @@ body {
 			}
 		}
 		function coinOverlap(player, coin) {
-                        var snd = this.load.audio('coin');
-                        snd play();
 			coin.kill();
 		}
 		function goombaOverlap(player, goomba) {
