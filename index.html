@@ -29,7 +29,7 @@ body {
 			game.load.audio('jump', ['audio/jump.wav']); 
 			game.load.audio('coin',['audio/coin.wav']);
 			game.load.audio('goomba',['audio/stomp.wav']);
-			game.load.audio('bgm',['audio/bgm.wav']);
+			//game.load.audio('bgm',['audio/bgm.wav']);
 			game.load.audio('death',['audio/death.wav']);
 			
 			this.load.spritesheet('tiles', 'assets/super_mario_tiles.png', 16,
@@ -89,8 +89,8 @@ body {
 			game.stage.backgroundColor = '#5c94fc';
 			
 			//bckgraundnmusic
-			bgmusic = game.add.audio('bgm');
-			bgmusic.play('',0,1,true);
+			//bgmusic = game.add.audio('bgm');
+			//bgmusic.play('',0,1,true);
 			
 			
 			map = game.add.tilemap('level');
@@ -215,9 +215,11 @@ body {
 				player.body.enable = false;
 				player.animations.stop();
 				game.time.events.add(Phaser.Timer.SECOND * 3, function() {
-					if(livesCount == 0)
+					if(livesCount > 0){
+						this.game.state.restart();
+					}else{
 						game.paused = true;
-					this.game.state.restart();
+					}
 				});
 			}
 		}
