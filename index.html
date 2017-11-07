@@ -176,9 +176,16 @@ body {
 			coinmusic = game.add.audio('coin');
 			coinmusic.play();
 			
+			//Score add
+			scoreCoun += 10;
+			
 		}
 		function goombaOverlap(player, goomba) {
 			if (player.body.touching.down) {
+				
+				//Score add
+				scoreCount += 25;
+				
 				//goomba music
 				goombamusic = game.add.audio('goomba');
 				goombamusic.play();
