@@ -60,7 +60,7 @@ body {
 		function create() {
 			
 			//Lives
-			livesPrint = game.add.text( 180, 5, 'NaN', {
+			livesPrint = game.add.text( 180, 5, '3', {
 				font: '18px Arial',
 				fill: '#ffffff',
 				aligment: 'center',
@@ -132,7 +132,7 @@ body {
 			
 			
 			//Score update
-			scorePrint.text = 'Score: ' + scoreCount;
+			scorePrint.text = 'Score : ' + scoreCount;
 			game.world.bringToTop(scorePrint);
 			
 			game.physics.arcade.collide(player, layer);
