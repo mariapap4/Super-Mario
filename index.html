@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Super-Mario2</title>
+<title>Super-Mario</title>
 <meta charset="utf-8">
 <style>
 body {
@@ -126,10 +126,17 @@ body {
 			cursors = game.input.keyboard.createCursorKeys();
 		}
 		function update() {
-			//Lives and score update
-			livesPrint.text = 'Lives : ' + livesCount;
-			scorePrint.text = 'Score: ' + scoreCount;
+			
+			//Lives update
+			if(livesCount == 1)
+				livesPrint.text = "LIFE : " + livesCount;
+			else
+				livesPrint.text = "LIVES : " + livesCount;
 			game.world.bringToTop(livesPrint);
+			
+			
+			//Score update
+			scorePrint.text = 'Score: ' + scoreCount;
 			game.world.bringToTop(scorePrint);
 			
 			game.physics.arcade.collide(player, layer);
