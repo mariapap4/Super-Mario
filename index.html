@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Super-Mario</title>
+<title>Super-Mariozz</title>
 <meta charset="utf-8">
 <style>
 body {
@@ -41,10 +41,10 @@ body {
 					Phaser.Tilemap.TILED_JSON);
 			
 			//Lives
-			localStorage.setItem("lives", 3);
+			localStorage.setItem("localZwes", 3);
 			
 			var livesPrint;
-			var livesCount;
+			var zwes;
 			
 			//Score
 			var scorePrint;
@@ -61,7 +61,7 @@ body {
 		function create() {
 			
 			//Lives
-			livesPrint = game.add.text( 180, 5, '3', {
+			livesPrint = game.add.text( 180, 5, 'NaN', {
 				font: '18px Arial',
 				fill: '#ffffff',
 				aligment: 'center',
@@ -69,7 +69,7 @@ body {
 				strokeThickness: '1'
 			});
 			livesPrint.fixedToCamera = true;
-			livesCount = parseInt(localStorage.getItem("lives"));
+			zwes = parseInt(localStorage.getItem("localZwes"));
 			
 			//Score
 			scorePrint = game.add.text( 5, 5, '0', {
@@ -128,10 +128,7 @@ body {
 		function update() {
 			
 			//Lives update
-			if(livesCount == 1)
-				livesPrint.text = "LIFE : " + livesCount;
-			else
-				livesPrint.text = "LIVES : " + livesCount;
+			livesPrint.text = "Lives : " + zwes;
 			game.world.bringToTop(livesPrint);
 			
 			
@@ -207,14 +204,14 @@ body {
 				
 				});
 			} else {
+				//lifes update
+				zwes = zwes - 1;
+				localStorage.setItem("loaclZwes", zwes);
+				
 				//Death sound
 				/*bgmusic.stop();*/
 				deathmusic = game.add.audio('death');
 				deathmusic.play();
-				
-				//Life removal
-				livesCount -= 1;
-				localStorage.setItem("lives", livesCount);
 				
 				player.frame = 6;
 				player.body.enable = false;
