@@ -200,9 +200,13 @@ body {
 				});
 			} else {
 				//Death sound
-				//bgmusic.stop();
+				/*bgmusic.stop();*/
 				deathmusic = game.add.audio('death');
 				deathmusic.play();
+				
+				//Life removal
+				livesCount -= 1;
+				localStorage.setItem("lives", livesCount);
 				
 				player.frame = 6;
 				player.body.enable = false;
