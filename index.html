@@ -202,22 +202,24 @@ body {
 				
 				});
 			} else {
-				//Life removal
-				livesCount -= 1;
-				localStorage.setItem("lives",livesCount);
 
 				//death music
 				bgmusic.stop();
 				deathmusic = game.add.audio('death');
 				deathmusic.play();
 				
+				//Life removal
+				livesCount -= 1;
+				localStorage.setItem("lives", livesCount);
+
 				player.frame = 6;
 				player.body.enable = false;
 				player.animations.stop();
+				
 				game.time.events.add(Phaser.Timer.SECOND * 3, function() {
 					if(livesCount > 0){
 						this.game.state.restart();
-					}else{
+					}else if(livesCount == 0){
 						game.paused = true;
 					}
 				});
