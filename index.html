@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Super-Mariozz</title>
+<title>Super-Mario</title>
 <meta charset="utf-8">
 <style>
 body {
@@ -40,11 +40,12 @@ body {
 			this.load.tilemap('level', 'assets/super_mario_map.json', null,
 					Phaser.Tilemap.TILED_JSON);
 			
-			//Lives
-			localStorage.setItem("localZwes", 3);
+			if(lives == 3){
+				localStorage.setItem("lives", 3);
+			}
 			
 			var livesPrint;
-			var zwes;
+			var livesCount;
 			
 			//Score
 			var scorePrint;
@@ -69,7 +70,7 @@ body {
 				strokeThickness: '1'
 			});
 			livesPrint.fixedToCamera = true;
-			zwes = parseInt(localStorage.getItem("localZwes"));
+			livesCount = parseInt(localStorage.getItem("lives"));
 			
 			//Score
 			scorePrint = game.add.text( 5, 5, '0', {
@@ -128,7 +129,7 @@ body {
 		function update() {
 			
 			//Lives update
-			livesPrint.text = "Lives : " + zwes;
+			livesPrint.text = "Lives : " + livesCount;
 			game.world.bringToTop(livesPrint);
 			
 			
@@ -205,8 +206,8 @@ body {
 				});
 			} else {
 				//lifes update
-				zwes = zwes - 1;
-				localStorage.setItem("loaclZwes", zwes);
+				livesCount -= 1;
+				localStorage.setItem("lives", livesCount);
 				
 				//Death sound
 				/*bgmusic.stop();*/
@@ -217,9 +218,9 @@ body {
 				player.body.enable = false;
 				player.animations.stop();
 				game.time.events.add(Phaser.Timer.SECOND * 3, function() {
-					if(zwes > 0){
+					if(livesCount > 0){
 						this.game.state.restart();
-					}else if(zwes == 0){
+					}else if(livesCount == 0){
 						game.paused = true;
 					}
 				});
