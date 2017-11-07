@@ -40,10 +40,8 @@ body {
 			this.load.tilemap('level', 'assets/super_mario_map.json', null,
 					Phaser.Tilemap.TILED_JSON);
 			
-			if(lives == 3){
-				localStorage.setItem("lives", 3);
-			}
-			
+			//Lives set
+			localStorage.setItem("lives", 3);
 			var livesPrint;
 			var livesCount;
 			
