@@ -64,7 +64,7 @@ body {
 				font: '18px Arial',
 				fill: '#ffffff',
 				aligment: 'center',
-				stroke: '#000000',
+				stroke: '#000',
 				strokeThickness: '1'
 			});
 			livesPrint.fixedToCamera = true;
@@ -75,7 +75,7 @@ body {
 				font: '18px Arial',
 				fill: '#ffffff',
 				aligment: 'center',
-				stroke: '#000000',
+				stroke: '#000',
 				strokeThickness: '1'
 			});
 			scorePrint.fixedToCamera = true;
@@ -208,7 +208,7 @@ body {
 				localStorage.setItem("lives", livesCount);
 				
 				//Death sound
-				/*bgmusic.stop();*/
+				bgmusic.stop();
 				deathmusic = game.add.audio('death');
 				deathmusic.play();
 				
