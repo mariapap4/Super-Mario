@@ -62,7 +62,7 @@ body {
 			//Lives
 			livesPrint = game.add.text( 180, 5, '3', {
 				font: '18px Arial',
-				fill: '#ffffff',
+				fill: '#000',
 				aligment: 'center',
 				stroke: '#000000',
 				strokeThickness: '1'
@@ -73,7 +73,7 @@ body {
 			//Score
 			scorePrint = game.add.text( 5, 5, '0', {
 				font: '18px Arial',
-				fill: '#ffffff',
+				fill: '#000',
 				aligment: 'center',
 				stroke: '#000000',
 				strokeThickness: '1'
@@ -181,14 +181,14 @@ body {
 			coinmusic.play();
 			
 			//Score add
-			scoreCount += 10;
+			scoreCount += 100;
 			
 		}
 		function goombaOverlap(player, goomba) {
 			if (player.body.touching.down) {
 				
 				//Score add
-				scoreCount += 25;
+				scoreCount += 250;
 				
 				//goomba music
 				goombamusic = game.add.audio('goomba');
